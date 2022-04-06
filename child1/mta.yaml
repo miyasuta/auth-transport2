@@ -1,0 +1,44 @@
+_schema-version: "3.2"
+ID: child1
+version: 0.0.1
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: childapprouter
+    path: approuter
+    type: approuter.nodejs
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires: 
+      - name: xsuaachild1
+      - name: srv-api
+        group: destinations
+        properties:
+          name: srv-api
+          url: "~{srv-url}"
+          forwardAuthToken: true 
+
+  - name: childapp1
+    type: nodejs
+    path: childapp1
+    parameters:
+      disk-quota: 256M
+      memory: 256M    
+    provides:
+      - name: srv-api
+        properties:
+          srv-url: ${default-url}
+    # build-parameters:
+      # ignore: ["node_modules/"]        
+    requires:
+      - name: xsuaachild1    
+
+resources:
+  - name: xsuaachild1
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application   

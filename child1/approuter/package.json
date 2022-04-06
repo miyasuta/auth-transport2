@@ -1,0 +1,9 @@
+{
+    "name": "child1-approuter",
+    "dependencies": {
+        "@sap/approuter": "^10.14.2"
+    },
+    "scripts": {
+        "start": "node node_modules/@sap/approuter/approuter.js"
+    }
+}

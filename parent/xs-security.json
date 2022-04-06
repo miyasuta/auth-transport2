@@ -1,0 +1,14 @@
+{
+    "xsappname": "xsuaaparent",
+    "tenant-mode": "dedicated",
+    "role-collections": [
+        {
+            "name": "Master_Admin",
+            "description": "Master Admin user",
+            "role-template-references": [
+                "$XSAPPNAME(application,xsuaachild1).Admin",
+                "$XSAPPNAME(application,xsuaachild2).Admin"
+            ]
+        }
+    ]
+}

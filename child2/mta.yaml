@@ -1,0 +1,11 @@
+_schema-version: "3.2"
+ID: child2
+version: 0.0.1
+
+resources:
+  - name: xsuaachild2
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service: xsuaa
+      service-plan: application   

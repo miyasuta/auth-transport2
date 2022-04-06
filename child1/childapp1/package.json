@@ -1,0 +1,15 @@
+{
+  "name": "childapp1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@sap/xsenv": "^3.2.1",
+    "@sap/xssec": "^3.2.13",
+    "express": "^4.17.3",
+    "passport": "^0.5.2"
+  }
+}
